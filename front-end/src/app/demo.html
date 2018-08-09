@@ -1,0 +1,113 @@
+<script type="text/javascript" src="/_layouts/YOUPortal/js/jquery-1.8.3.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css"/>
+
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+-->
+<script type="text/javascript">
+
+    function fix() {
+
+        //$('#ctl00_m_g_0a41200d_dea7_4c3a_834b_25b5f0308bd6_ctl00_imgParamsCollapse').trigger('click');
+        $('.sqlrv-CollapseSeparator').trigger('click');
+        //alert('1');
+        $('.sqlrv-ExpandSeparator').trigger('click');
+        //alert('2');
+
+        $('#ctl00_m_g_58bf9892_45a5_45eb_936b_1dcf71bdd484_ctl00_ctl17_ctl06_ctl03_txtValue')
+            .attr('size', '27')
+            .attr("onchange", "")
+            .datepicker({
+                dateFormat: 'mm/dd/yy',
+                showOn: "button",
+                buttonImage: "http://you.yash.com/Reserved.ReportViewerWebPart.axd?OpType=Resource&Version=10.50.4000.0&Name=Microsoft.Reporting.WebForms.calendar.gif",
+                buttonImageOnly: true,
+                buttonText: "Select date"
+            });
+
+
+        //        $('#ctl00_m_g_d4b3616c_3f37_4332_b91c_8b9db4df8bcd_ctl00_ctl17_ctl06_ctl03_txtValue')
+        //                .attr('size','28')
+        //                .after('<img src="http://you.yash.com/Reserved.ReportViewerWebPart.axd?OpType=Resource&Version=10.50.4000.0&Name=Microsoft.Reporting.WebForms.calendar.gif">');
+
+
+        if ($('#ctl00_m_g_58bf9892_45a5_45eb_936b_1dcf71bdd484_ctl00_ctl17_ctl06_ctl05_txtValue').prop('disabled')) {
+            $('#ctl00_m_g_58bf9892_45a5_45eb_936b_1dcf71bdd484_ctl00_ctl17_ctl06_ctl05_txtValue')
+                .attr('size', '27')
+                .datepicker({
+                    dateFormat: 'mm/dd/yy',
+                    showOn: "button",
+                    buttonImage: "http://you.yash.com/Reserved.ReportViewerWebPart.axd?OpType=Resource&Version=10.50.4000.0&Name=Microsoft.Reporting.WebForms.calendar.gif",
+                    buttonImageOnly: true,
+                    buttonText: "Select date",
+                    disabled: true
+                });
+        }
+        else {
+            $('#ctl00_m_g_58bf9892_45a5_45eb_936b_1dcf71bdd484_ctl00_ctl17_ctl06_ctl05_txtValue')
+                .attr('size', '27')
+                .datepicker({
+                    dateFormat: 'mm/dd/yy',
+                    showOn: "button",
+                    buttonImage: "http://you.yash.com/Reserved.ReportViewerWebPart.axd?OpType=Resource&Version=10.50.4000.0&Name=Microsoft.Reporting.WebForms.calendar.gif",
+                    buttonImageOnly: true,
+                    buttonText: "Select date"
+                });
+        }
+
+        $('.hasDatepicker').each(function () {
+            if ($(this).val() != '') {
+                $(this).val($(this).val().replace('12:00:00 AM', ''));
+            }
+        })
+
+    }
+
+    function enableDatePicker() {
+
+        $('#ctl00_m_g_58bf9892_45a5_45eb_936b_1dcf71bdd484_ctl00_ctl17_ctl06_ctl03_txtValue')
+            .attr('size', '27')
+            .datepicker({
+                dateFormat: 'mm/dd/yy',
+                showOn: "button",
+                buttonImage: "http://you.yash.com/Reserved.ReportViewerWebPart.axd?OpType=Resource&Version=10.50.4000.0&Name=Microsoft.Reporting.WebForms.calendar.gif",
+                buttonImageOnly: true,
+                buttonText: "Select date"
+            });
+
+        $('#ctl00_m_g_58bf9892_45a5_45eb_936b_1dcf71bdd484_ctl00_ctl17_ctl06_ctl05_txtValue')
+            .attr('size', '27')
+            .datepicker({
+                dateFormat: 'mm/dd/yy',
+                showOn: "button",
+                buttonImage: "http://you.yash.com/Reserved.ReportViewerWebPart.axd?OpType=Resource&Version=10.50.4000.0&Name=Microsoft.Reporting.WebForms.calendar.gif",
+                buttonImageOnly: true,
+                buttonText: "Select date"
+            });
+    }
+
+    $(document).ready(function () {
+
+        if ((/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)) || (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)))
+        //Check if it is chrome or safari
+        {
+            setTimeout(fix, 500);
+        }
+    });
+
+    $(document).on('change', '#ctl00_m_g_58bf9892_45a5_45eb_936b_1dcf71bdd484_ctl00_ctl17_ctl06_ctl03_txtValue', function () {
+
+        if ((/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)) || (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)))
+        //Check if it is chrome or safari
+        {
+            setTimeout('__doPostBack(\'ctl00$m$g_58bf9892_45a5_45eb_936b_1dcf71bdd484$ctl00$ctl17$ctl06$ctl03$txtValue\',\'\')', 0);
+        }
+
+    });
+
+</script>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
